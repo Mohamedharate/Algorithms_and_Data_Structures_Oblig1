@@ -2,6 +2,9 @@ public class Oppgave7b {
 
     public static String flett(String... s){
 
+        if (s.length == 0){
+            return "";
+        }
 
         String resultat="";
         int makslengde = s[0].length();
@@ -25,7 +28,7 @@ public class Oppgave7b {
 
     public static void main(String[] args) {
 
-        System.out.println(flett("abc","123","dfe"));
+        System.out.println(flett());
 
     }
 

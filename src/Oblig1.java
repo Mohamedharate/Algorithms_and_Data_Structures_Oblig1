@@ -70,13 +70,70 @@ public class Oblig1 {
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
-    public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+    public static String flett(String s, String t){
+
+        String resultat ="";
+
+        if (s.isEmpty()){ //Dersom noen av strengene er tomme, returner den andre strengen
+            return t;
+        }
+
+        if (t.isEmpty()){
+            return s;
+        }
+
+        if (s.length()>t.length()){ // i tilfelle der s er lengre enn t
+            for (int i = 0; i<t.length(); i++ ){
+
+                resultat += s.charAt(i);
+                resultat += t.charAt(i);
+
+                if (i==t.length()-1){ //Sjekker om vi er ved enden av ordet t
+                    resultat += s.substring(t.length()); //legger til resten av s
+                }
+            }
+        }else{ //I det tilfelle der t er lengre enn s
+
+            for (int i = 0; i<s.length(); i++){
+
+                resultat += s.charAt(i);
+                resultat += t.charAt(i);
+
+                if (i==s.length()-1){ //Sjekker her om vi er på slutten av ordet s
+                    resultat += t.substring(s.length()); //legger til resten av t
+                }
+            }
+
+        }
+
+        return resultat;
     }
 
     /// 7b)
-    public static String flett(String... s) {
-        throw new UnsupportedOperationException();
+    public static String flett(String... s){
+
+        if (s.length == 0){
+            return "";
+        }
+
+        String resultat="";
+        int makslengde = s[0].length();
+
+        for (int k = 1; k<s.length ; k++) { //for å finne den ytterste grensen til sjekken
+            if (s[k].length() > makslengde) {
+                makslengde = s[k].length();
+            }
+        }
+
+        for (int j=0; j<makslengde; j++){
+            for (int i = 0; i<s.length; i++){
+                if (j<s[i].toCharArray().length){
+                    resultat += "" + s[i].toCharArray()[j];
+                }
+            }
+        }
+
+        return resultat;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
