@@ -19,9 +19,12 @@ public class Oblig1 {
             int temp = a[i];
             a[i] = a[i+1];
             a[i+1] = temp;
-        } //n-1+x sammenlikninger
+        }
 
         return a[a.length-1];
+
+        //Denne koden er O(n), ettersom den bare går gjennom et lineært antall ganger. Dette stemmer også for de
+        // metodene vi har jobbet med tidligere. Den er gjennomsnittlig like rask som de andre metodene.
 
 
     }
