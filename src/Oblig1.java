@@ -23,7 +23,7 @@ public class Oblig1 {
             throw new NoSuchElementException("Et tomt array har ingen maksverdi");
         }
 
-        for (int i = 0; i < a.length-1 ; i++) if (a[i]>a[i+1]){ //Går bare gjennom for-løkken når et tall er større enn det neste
+        for (int i = 0; i < a.length-1 ; i++) if (a[i]>a[i+1]){ //Går bare gjennom for-lokken når et tall er storre enn det neste
             int temp = a[i];
             a[i] = a[i+1];
             a[i+1] = temp;
@@ -31,7 +31,7 @@ public class Oblig1 {
 
         return a[a.length-1];
 
-        //Denne koden er O(n), ettersom den bare går gjennom et lineært antall ganger. Dette stemmer også for de
+        //Denne koden er O(n), ettersom den bare går gjennom et lineart antall ganger. Dette stemmer også for de
         // metodene vi har jobbet med tidligere. Den er gjennomsnittlig like rask som de andre metodene.
 
 
@@ -41,12 +41,12 @@ public class Oblig1 {
 
 
         if (a.length == 0){
-            throw new NoSuchElementException("Et tomt array gjøringen ombyttinger");
+            throw new NoSuchElementException("Et tomt array gjoringen ombyttinger");
         }
 
         int teller = 0;
 
-        for (int i = 0; i < a.length-1 ; i++) if (a[i]>a[i+1]){ //Går bare gjennom for-løkken når et tall er større enn det neste
+        for (int i = 0; i < a.length-1 ; i++) if (a[i]>a[i+1]){ //Går bare gjennom for-lokken når et tall er storre enn det neste
             int temp = a[i];
             a[i] = a[i+1];
             a[i+1] = temp;
