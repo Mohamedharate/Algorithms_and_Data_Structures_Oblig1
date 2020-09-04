@@ -1,5 +1,13 @@
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
+/*Gruppe
+    Mohamed Khir Harate, S338672, s338672@oslomet.no
+
+    Hanna Nilsen, S341879, s341879@oslomet.no
+
+    Andreas Torres Hansen, S338851, s338851@oslomet.no
+ */
+
 import java.lang.UnsupportedOperationException;
 import java.util.ArrayList;
 import java.util.List;
