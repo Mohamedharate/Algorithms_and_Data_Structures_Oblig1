@@ -7,7 +7,7 @@ Oppgaven er levert av følgende studenter:
 
 * Hanna Nilsen, S341879, s341879@oslomet.no
 
-* Andreas Torres hansen, S338851, s338851@oslomet.no
+* Andreas Torres Hansen, S338851, s338851@oslomet.no
 
 # Arbeidsfordeling
 
