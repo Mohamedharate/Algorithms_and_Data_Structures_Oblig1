@@ -47,7 +47,24 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a){
-        throw new UnsupportedOperationException();
+        List<Integer> ulikeTall = new ArrayList<>();
+
+        if(a.length == 0) {
+            return 0;
+        }
+
+        for(int i =0; i<a.length;i++){
+            if(i+1<a.length) {
+                if (a[i] > a[i + 1]) {
+                    throw new IllegalStateException("Tabellen er ikke sortert!");
+                }
+            }
+
+            if(!ulikeTall.contains(a[i])){
+                ulikeTall.add(a[i]);
+            }
+        }
+        return ulikeTall.size();
     }
 
     ///// Oppgave 3 //////////////////////////////////////
@@ -137,8 +154,17 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
+        if(a.length==0){
+            return;
+        }
 
-        throw new UnsupportedOperationException();
+        char sist = a[a.length-1];
+
+        for(int i = a.length-1; i>0;i--) {
+            a[i] = a[i-1];
+        }
+
+        a[0] = sist;
     }
 
     ///// Oppgave 6 //////////////////////////////////////
