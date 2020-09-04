@@ -31,6 +31,7 @@ public class Oblig1 {
 
     public static int ombyttinger(int[] a){
 
+
         if (a.length == 0){
             throw new NoSuchElementException("Et tomt array gjøringen ombyttinger");
         }
