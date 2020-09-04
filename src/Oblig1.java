@@ -93,14 +93,11 @@ public class Oblig1 {
         }
         return antall;
     }
-
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a){
-
         if (a.length == 1){
             return;
         }
-
         int l = 0,r=a.length-1;
         int teller = 0;
 
@@ -161,8 +158,6 @@ public class Oblig1 {
         a[fra] = a[til];
         a[til] = temp;
     }
-
-
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
@@ -301,7 +296,6 @@ public class Oblig1 {
         nestMinverdi = a[nm];
         tredjeMinverdi = a[nnm];
 
-
         for (int i = 3;i<size;i++){
             if (a[i] < tredjeMinverdi){
                 if (a[i] < nestMinverdi){
@@ -329,7 +323,6 @@ public class Oblig1 {
                 }
             }
         }
-
         return new int[]{m,nm,nnm};
     }
 
