@@ -14,6 +14,6 @@ Oppgaven er levert av følgende studenter:
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Mohamed K. Harate har hatt hovedansvar for oppgave 3, 8, 9 og 10. 
 
-* Andreas T. Hansen har hatt hovedansvar for oppgave 2, 4, og 6. 
+* Andreas T. Hansen har hatt hovedansvar for oppgave 1, 4, og 7. 
 
-* Hanna Nilsen har hatt hovedansvar for oppgave 7 og 8. 
+* Hanna Nilsen har hatt hovedansvar for oppgave 2, 5 og 6. 
