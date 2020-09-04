@@ -1,6 +1,8 @@
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -44,7 +46,7 @@ public class Oblig1 {
     }
 
     ///// Oppgave 2 //////////////////////////////////////
-    public static int antallUlikeSortert(int[] a) {
+    public static int antallUlikeSortert(int[] a){
         throw new UnsupportedOperationException();
     }
 
@@ -54,12 +56,78 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+    public static void delsortering(int[] a){
+
+        if (a.length == 1){
+            return;
+        }
+
+        int l = 0,r=a.length-1;
+        int teller = 0;
+
+        for (int tall : a){
+            if (tall%2!=0){
+                teller++;
+            }
+        }
+
+        while(l<r){
+
+            while (a[l]%2!=0 && l<r){
+                l++;
+            }
+
+            while(a[r]%2==0 && l<r){
+                r--;
+            }
+
+            if (l<r){
+                bytt(a,l,r);
+                l++;
+                r--;
+            }
+        }
+
+        quicksort(a,0,teller-1);
+        quicksort(a, teller, a.length-1);
     }
+
+    public static void quicksort(int[] a, int fra, int til){
+
+        if (fra<=til) {
+            int partisjonsIndeks = partisjoner(a, fra, til);
+
+            quicksort(a, fra, partisjonsIndeks - 1);
+            quicksort(a, partisjonsIndeks + 1, til);
+        }
+    }
+
+    public static int partisjoner(int[] a, int fra, int til){
+        int pivot = a[til];
+        int v = fra-1; //venstrepeker
+
+        for (int i = fra; i<til ; i++){
+            if (a[i]<=pivot){
+                v++;
+                bytt(a, v, i);
+            }
+        }
+
+        bytt(a, v+1, til);
+        return v+1;
+    }
+
+    public static void bytt(int[] a, int fra ,int til){
+        int temp = a[fra];
+        a[fra] = a[til];
+        a[til] = temp;
+    }
+
+
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
+
         throw new UnsupportedOperationException();
     }
 
