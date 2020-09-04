@@ -50,7 +50,17 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antall = a.length;
+        if (a.length == 0){ return 0; }
+        for (int i = 0; i < a.length;i++){
+            for (int j = 0; j < i;j++){
+                if (a[i] == a[j]){
+                    antall--;
+                    break;
+                }
+            }
+        }
+        return antall;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
@@ -103,47 +113,103 @@ public class Oblig1 {
                     resultat += t.substring(s.length()); //legger til resten av t
                 }
             }
-
         }
-
         return resultat;
     }
 
     /// 7b)
     public static String flett(String... s){
 
-        if (s.length == 0){
-            return "";
-        }
+        String res = "";
+        int runde = 0;
+        int bokstavNummer  = 0;
 
-        String resultat="";
-        int makslengde = s[0].length();
+        for (int i = 0; i < s.length;i++) {
 
-        for (int k = 1; k<s.length ; k++) { //for å finne den ytterste grensen til sjekken
-            if (s[k].length() > makslengde) {
-                makslengde = s[k].length();
+            if (s[i].length() > 0 && bokstavNummer < s[i].length())
+                res += s[i].charAt(bokstavNummer);
+
+            if (i == s.length-1 && runde <= s[i].length()+1){
+                i=-1;
+                bokstavNummer++;
+                runde++;
             }
         }
-
-        for (int j=0; j<makslengde; j++){
-            for (int i = 0; i<s.length; i++){
-                if (j<s[i].toCharArray().length){
-                    resultat += "" + s[i].toCharArray()[j];
-                }
-            }
-        }
-
-        return resultat;
+        return res;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new UnsupportedOperationException();
+        int size = a.length;
+
+        int[] indeks = new int[a.length];
+        for (int i = 0; i < size; i++) { indeks[i] = i; }
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j < a.length; j++) {
+                if (a[indeks[j]] < a[indeks[i]]) {
+                    int temp = indeks[j];
+                    indeks[j] = indeks[i];
+                    indeks[i] = temp;
+                }
+            }
+        }
+        return indeks;
     }
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new UnsupportedOperationException();
+        int size = a.length;
+        if (size < 3) throw
+                new java.util.NoSuchElementException("a.length(" + size + ") < 3!");
+
+        int m = 0;
+        int nm = 1;
+        int nnm = 2;
+
+        int minverdi = a[m];
+        int nestMinverdi = a[nm];
+        int tredjeMinverdi = a[nnm];
+
+        int[] ny =  indekssortering(new int[]{minverdi,nestMinverdi,tredjeMinverdi});
+        m = ny[0];
+        nm = ny[1];
+        nnm = ny[2];
+
+        minverdi = a[m];
+        nestMinverdi = a[nm];
+        tredjeMinverdi = a[nnm];
+
+
+        for (int i = 3;i<size;i++){
+            if (a[i] < tredjeMinverdi){
+                if (a[i] < nestMinverdi){
+                    if (a[i] < minverdi){
+                        nnm = nm;
+                        tredjeMinverdi = nestMinverdi;
+
+                        nm = m;
+                        nestMinverdi = minverdi;
+
+                        m = i;
+                        minverdi = a[m];
+                    }
+                    else {
+                        nnm = nm;
+                        tredjeMinverdi = nestMinverdi;
+
+                        nm = i;
+                        nestMinverdi = a[i];
+                    }
+                }
+                else {
+                    nnm = i;
+                    tredjeMinverdi = a[nnm];
+                }
+            }
+        }
+
+        return new int[]{m,nm,nnm};
     }
 
     ///// Oppgave 10 //////////////////////////////////////
@@ -152,7 +218,19 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
-        throw new UnsupportedOperationException();
+        if (a.isEmpty()){return true;};
+
+        if (a.length()>b.length()){ return false;}
+
+        char[] stringa = a.toCharArray();
+        char[] stringb = b.toCharArray();
+        int[] intArray = new int[256];
+
+        for (char c : stringb) { intArray[c]++; }
+        for (int i : stringa){ intArray[i]--; }
+        for (int i : intArray){ if (i < 0){ return false; }
+        }
+        return true;
     }
 
 }  // Oblig1
