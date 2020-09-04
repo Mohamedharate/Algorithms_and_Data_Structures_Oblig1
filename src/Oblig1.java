@@ -168,15 +168,30 @@ public class Oblig1 {
     }
 
     ///// Oppgave 6 //////////////////////////////////////
-    public static void rotasjon(char[] a, int k) {
-        throw new UnsupportedOperationException();
+    public static void bytt(char[] a, int i, int j){
+        char temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+
+    }
+    public static void rotasjon(char[] a, int k){
+        int size = a.length;
+        if (size < 2) return;
+
+        if ((k %= size) < 0)
+            k += size;
+
+        for (int v = 0, h = size - 1; v < h; bytt(a, v++, h--));
+        for (int v = 0, h = k - 1; v < h; bytt(a, v++, h--));  // snur a[0:d>
+        for (int v = k, h = size - 1; v < h; bytt(a, v++, h--));  // snur a[d:n>
+
     }
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t){
 
-        String resultat ="";
+        String resultat = "";
 
         if (s.isEmpty()){ //Dersom noen av strengene er tomme, returner den andre strengen
             return t;
